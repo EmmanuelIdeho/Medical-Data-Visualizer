@@ -29,17 +29,19 @@ def draw_cat_plot():
 
 
     # 6
-    df_cat = df_cat.groupby(['cardio', 'variable', 'value']).size().reset_index(name='count')
+    df_cat = df_cat.groupby(['cardio', 'variable', 'value']).size().reset_index(name='total')
     
 
     # 7
-    fig = sns.catplot(x="variable",          # Categorical features on x-axis
+    fig = sns.catplot(
+    x="variable",          # Categorical features on x-axis
+    y = "total",
     hue="value",           # 0 or 1 category (binary features)
     col="cardio",          # Split by cardio
     data=df_cat,           # Use the grouped DataFrame
     kind="bar",            # Use bar chart
     height=5,              # Set height of the plot
-    aspect=1.2             # Control the aspect ratio)
+    aspect=1             # Control the aspect ratio)
     )
 
 
