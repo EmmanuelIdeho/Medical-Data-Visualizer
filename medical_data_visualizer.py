@@ -7,11 +7,11 @@ import numpy as np
 df = pd.read_csv('medical_examination.csv')
 
 # 2
-df['overweight'] = df['weight'] / (df['height']**2)
+df['overweight'] = np.where(df['weight'] / (df['height'] / 100) ** 2 > 25, 1, 0)
 
 # 3
-df.loc[df['overweight'] <= 25, 'overweight'] = 0
-df.loc[df['overweight'] > 25, 'overweight'] = 1
+#df.loc[df['overweight'] <= 25, 'overweight'] = 0
+#df.loc[df['overweight'] > 25, 'overweight'] = 1
 
 df.loc[df['cholesterol'] == 1, 'cholesterol'] = 0
 df.loc[df['cholesterol'] > 1, 'cholesterol'] = 1
@@ -50,30 +50,51 @@ def draw_cat_plot():
 
 
     # 9
-    fig.savefig('catplot.png')
-    return fig
+    fig.figure.savefig('catplot.png')
+    plt.close(fig.figure)
+    return fig.figure
 
 
 # 10
 def draw_heat_map():
     # 11
-    df_heat = None
+    df_heat = df.loc[
+        (df['ap_lo'] <= df['ap_hi']) &
+        (df['height'] >= df['height'].quantile(0.025)) &
+        (df['height'] <= df['height'].quantile(0.975)) &
+        (df['weight'] >= df['weight'].quantile(0.025)) &
+        (df['weight'] <= df['weight'].quantile(0.975))
+        ]
 
     # 12
-    corr = None
+    corr = df_heat.corr()
 
     # 13
-    mask = None
-
-
+    mask = np.triu(np.ones_like(corr, dtype=bool))
 
     # 14
-    fig, ax = None
+    fig, ax = plt.subplots(figsize=(12, 8))
 
     # 15
+    sns.heatmap(
+    corr,               # Correlation matrix data
+    annot=True,                 # Display correlation values
+    cmap="RdBu_r",            # Color scheme
+    fmt=".1f",                  # Format for correlation values (1 decimal place)
+    linewidths=0.5,             # Line width between cells
+    cbar=True,                  # Show color bar
+    square=True,                # The heatmap should not be a square
+    mask=mask,                  # Apply the upper triangle mask
+    ax=ax,                      # Use the correct axis
+    vmin=-0.08,                 # Color range minimum
+    vmax=0.24                   # Color range maximum
+    )
+    plt.show()
+
 
 
 
     # 16
     fig.savefig('heatmap.png')
+    plt.close(fig)
     return fig
