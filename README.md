@@ -1,6 +1,6 @@
 # Medical Data Visualizer
 
-The **Medical Data Visualizer** project is part of the Data Analysis with Python certification from FreeCodeCamp. This project involves visualizing a medical dataset to explore various relationships and trends between factors like cholesterol, glucose levels, smoking habits, and more, using Python libraries such as Pandas, Seaborn, and Matplotlib.
+The **Medical Data Visualizer** project is part of the **Data Analysis with Python** certification from [freeCodeCamp](https://www.freecodecamp.org/). This project involves visualizing a medical dataset to explore various relationships and trends between factors like cholesterol, glucose levels, smoking habits, and more, using Python libraries such as Pandas, Seaborn, and Matplotlib.
 
 ## Project Overview
 
@@ -37,15 +37,21 @@ The dataset undergoes several cleaning steps to ensure that the data is suitable
 ## Functions
 
 ### `draw_cat_plot()`
+![](./cat_plot.png)
 This function generates and saves a categorical plot (`catplot.png`) to visualize the distribution of key features based on the presence of cardiovascular disease.
 
 ### `draw_heat_map()`
+![](./heatmap.png)
 This function generates and saves a heatmap (`heatmap.png`) to visualize correlations between different medical attributes in the dataset.
 
 ## Usage
-Run the script to generate the visualizations:
-```bash
-python medical_data_visualizer.py
+1.Install the necessary dependencies:
+  ```bash
+  pip install -r requirements.txt
+2.Run the script to generate the visualizations:
+  ```bash
+  python medical_data_visualizer.py
+3.The script will generate two image files: cat_plot.png, and heatmap.png
 
 ## Project Goals
 -  Use Python for data cleaning, analysis, and visualization, providing insights into cardiovascular health.
