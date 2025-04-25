@@ -37,7 +37,7 @@ The dataset undergoes several cleaning steps to ensure that the data is suitable
 ## Functions
 
 ### `draw_cat_plot()`
-![](./cat_plot.png)
+![](./catplot.png)
 This function generates and saves a categorical plot (`catplot.png`) to visualize the distribution of key features based on the presence of cardiovascular disease.
 
 ### `draw_heat_map()`
@@ -45,13 +45,13 @@ This function generates and saves a categorical plot (`catplot.png`) to visualiz
 This function generates and saves a heatmap (`heatmap.png`) to visualize correlations between different medical attributes in the dataset.
 
 ## Usage
-1.Install the necessary dependencies:
+1. Install the necessary dependencies:
   ```bash
   pip install -r requirements.txt
-2.Run the script to generate the visualizations:
+2. Run the script to generate the visualizations:
   ```bash
   python medical_data_visualizer.py
-3.The script will generate two image files: cat_plot.png, and heatmap.png
+3. The script will generate two image files: catplot.png, and heatmap.png
 
 ## Project Goals
 -  Use Python for data cleaning, analysis, and visualization, providing insights into cardiovascular health.
