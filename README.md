@@ -44,19 +44,3 @@ This function generates and saves a categorical plot (`catplot.png`) to visualiz
 ![](./heatmap.png)
 This function generates and saves a heatmap (`heatmap.png`) to visualize correlations between different medical attributes in the dataset.
 
-## Usage
-
-1. Install the necessary dependencies:
-  ```bash
-  pip install -r requirements.txt
-2. Run the script to generate the visualizations:
-  ```bash
-  python medical_data_visualizer.py
-3. The script will generate two image files: catplot.png, and heatmap.png
-
-## Project Goals
-
--  Use Python for data cleaning, analysis, and visualization, providing insights into cardiovascular health.
-- The visualizations can help healthcare professionals or researchers identify key trends and relationships between different health indicators.
-
-
